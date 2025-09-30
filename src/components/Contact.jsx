@@ -82,7 +82,10 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gray-800/50">
+    <section
+      id="contact"
+      className="py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50"
+    >
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -94,11 +97,11 @@ const Contact = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                 Let's Connect
               </span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Ready to discuss opportunities, partnerships, or just want to
               connect? I'd love to hear from you. Let's start a conversation.
             </p>
@@ -113,15 +116,26 @@ const Contact = () => {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-6">
+              <div className="bg-gradient-to-br from-white via-blue-50/50 to-indigo-100/40 rounded-2xl p-8 shadow-lg border border-white/60">
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">
                   Get In Touch
                 </h3>
-                <p className="text-gray-300 leading-relaxed mb-8">
-                  Whether you're interested in partnership opportunities, have a
-                  business proposal, or simply want to connect, I'm always open
-                  to meaningful conversations that can create mutual value.
-                </p>
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-r from-emerald-500/15 to-teal-500/15 rounded-xl p-4 border border-emerald-200/60 shadow-sm">
+                    <h4 className="font-semibold text-gray-800 mb-2">
+                      🤝 Interested in Partnership Opportunities?
+                    </h4>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      I'm always open to strategic partnerships that create
+                      mutual value and drive innovation.
+                    </p>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed">
+                    Whether you have a business proposal or simply want to
+                    connect, I welcome meaningful conversations that can lead to
+                    exciting collaborations.
+                  </p>
+                </div>
               </div>
 
               {/* Contact Details */}
@@ -134,16 +148,16 @@ const Contact = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-center space-x-4 p-4 bg-gray-900/50 rounded-lg backdrop-blur-sm border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 group"
+                    className="flex items-center space-x-4 p-6 bg-white/80 rounded-2xl backdrop-blur-sm border border-white/60 hover:border-blue-300 transition-all duration-300 group shadow-lg hover:shadow-xl"
                   >
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <info.Icon size={20} className="text-white" />
+                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                      <info.Icon size={24} className="text-white" />
                     </div>
                     <div>
-                      <div className="text-sm text-gray-400 uppercase tracking-wide">
+                      <div className="text-sm text-gray-500 uppercase tracking-wide font-medium">
                         {info.label}
                       </div>
-                      <div className="text-white font-medium group-hover:text-blue-400 transition-colors duration-300">
+                      <div className="text-gray-800 font-semibold group-hover:text-blue-600 transition-colors duration-300 text-lg">
                         {info.value}
                       </div>
                     </div>
@@ -153,8 +167,8 @@ const Contact = () => {
 
               {/* Social Links */}
               <div>
-                <h4 className="text-lg font-semibold text-white mb-4">
-                  Follow Me
+                <h4 className="text-lg font-semibold text-gray-800 mb-4">
+                  Connect With Me
                 </h4>
                 <div className="flex space-x-4">
                   {socialLinks.map((social, index) => (
@@ -168,9 +182,9 @@ const Contact = () => {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
                       whileHover={{ scale: 1.1, y: -2 }}
-                      className={`w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center text-gray-400 ${social.color} transition-all duration-300 border border-gray-700 hover:border-current`}
+                      className="w-14 h-14 bg-white/80 rounded-2xl flex items-center justify-center text-gray-600 hover:text-blue-600 transition-all duration-300 border border-white/60 hover:border-blue-300 shadow-lg hover:shadow-xl"
                     >
-                      <social.Icon size={20} />
+                      <social.Icon size={24} />
                       <span className="sr-only">{social.label}</span>
                     </motion.a>
                   ))}
@@ -184,9 +198,9 @@ const Contact = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="bg-gray-900/50 p-8 rounded-xl backdrop-blur-sm border border-gray-700/50"
+              className="bg-white/80 p-8 rounded-3xl backdrop-blur-sm border border-white/60 shadow-xl"
             >
-              <h3 className="text-2xl font-bold text-white mb-6">
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">
                 Send a Message
               </h3>
 
@@ -195,7 +209,7 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium text-gray-300 mb-2"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
                     >
                       Name *
                     </label>
@@ -206,7 +220,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-300"
+                      className="w-full px-4 py-3 bg-white/90 border border-blue-200 rounded-xl text-gray-800 placeholder-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-200 transition-colors duration-300 shadow-sm"
                       placeholder="Your full name"
                     />
                   </div>
@@ -214,7 +228,7 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-gray-300 mb-2"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
                     >
                       Email *
                     </label>
@@ -225,7 +239,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-300"
+                      className="w-full px-4 py-3 bg-white/90 border border-blue-200 rounded-xl text-gray-800 placeholder-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-200 transition-colors duration-300 shadow-sm"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -234,7 +248,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="subject"
-                    className="block text-sm font-medium text-gray-300 mb-2"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
                   >
                     Subject *
                   </label>
@@ -245,7 +259,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-300"
+                    className="w-full px-4 py-3 bg-white/90 border border-blue-200 rounded-xl text-gray-800 placeholder-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-200 transition-colors duration-300 shadow-sm"
                     placeholder="What's this about?"
                   />
                 </div>
@@ -253,7 +267,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-300 mb-2"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
                   >
                     Message *
                   </label>
@@ -264,7 +278,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-300 resize-none"
+                    className="w-full px-4 py-3 bg-white/90 border border-blue-200 rounded-xl text-gray-800 placeholder-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-200 transition-colors duration-300 resize-none shadow-sm"
                     placeholder="Tell me more about your inquiry..."
                   />
                 </div>
@@ -274,7 +288,7 @@ const Contact = () => {
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full text-white font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-blue-500/25 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                  className="w-full px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full text-white font-semibold hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/25 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
                 >
                   {isSubmitting ? (
                     <>
@@ -300,10 +314,10 @@ const Contact = () => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="mt-20 pt-8 border-t border-gray-700"
+        className="mt-20 pt-8 border-t border-blue-200/50"
       >
         <div className="container mx-auto px-6">
-          <div className="text-center text-gray-400">
+          <div className="text-center text-gray-600">
             <p>&copy; 2025 Tizie Oswald. All rights reserved.</p>
             <p className="mt-2 text-sm">Built with passion and precision.</p>
           </div>

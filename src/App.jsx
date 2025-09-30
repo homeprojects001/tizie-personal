@@ -29,7 +29,7 @@ function App() {
   }
 
   return (
-    <div className="bg-gray-900 text-white overflow-x-hidden">
+    <div className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 text-gray-900 overflow-x-hidden min-h-screen">
       <AnimatePresence mode="wait">
         {isLoading ? (
           <LoadingScreen key="loading" />

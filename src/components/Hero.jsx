@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ChevronDown, Linkedin, Mail, Twitter } from "lucide-react";
+import { AnimatedButton, GlassCard, Magnetic, SplitText } from "./ReactBits";
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -12,12 +13,12 @@ const Hero = () => {
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
       {/* Background Animation */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900/20 to-gray-900">
-        <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/50 to-indigo-100/50">
+        <div className="absolute inset-0 opacity-30">
           <div
             className="w-full h-full"
             style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234f46e5' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
               backgroundRepeat: "repeat",
             }}
           ></div>
@@ -29,7 +30,7 @@ const Hero = () => {
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-blue-400/30 rounded-full"
+            className="absolute w-3 h-3 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full opacity-40"
             initial={{ opacity: 0 }}
             animate={{
               x: [0, 100, 0],
@@ -50,62 +51,73 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 py-20 text-center relative z-10">
+      <div className="container mx-auto px-6 py-32 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Profile Image */}
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="w-48 h-48 mx-auto mb-8 relative"
+            className="w-48 h-48 mx-auto mb-8 relative mt-16"
           >
-            <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-400 to-blue-600 p-1">
-              <div className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center">
-                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-4xl font-bold text-white">
-                  TO
-                </div>
+            <GlassCard className="w-full h-full rounded-full p-3">
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-2xl overflow-hidden">
+                <img
+                  src="/logo-transparent.png"
+                  alt="Tizie Oswald"
+                  className="w-32 h-32 object-contain"
+                />
               </div>
-            </div>
+            </GlassCard>
 
             {/* Animated ring */}
             <motion.div
-              className="absolute inset-0 rounded-full border-2 border-blue-400/50"
+              className="absolute inset-0 rounded-full border-2 border-blue-500/40"
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             />
           </motion.div>
 
           {/* Name and Title */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-          >
-            <h1 className="text-5xl md:text-7xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                Tizie
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                Oswald
-              </span>
-            </h1>
-          </motion.div>
+          {/* Name and Title */}
+          <div>
+            <SplitText
+              text="Tizie"
+              className="text-5xl md:text-7xl font-bold block mb-2 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent"
+              delay={1.0}
+              stagger={0.15}
+            />
+            <SplitText
+              text="Oswald"
+              className="text-5xl md:text-7xl font-bold block mb-4 bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent"
+              delay={1.3}
+              stagger={0.15}
+            />
+          </div>
 
+          {/* Tagline */}
           {/* Tagline */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
+            transition={{ duration: 0.8, delay: 1.6 }}
             className="mb-8"
           >
-            <p className="text-xl md:text-2xl text-gray-300 mb-4">
-              Business Visionary & Strategic Leader
-            </p>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            <SplitText
+              text="Business Visionary & Strategic Leader"
+              className="text-xl md:text-2xl text-gray-700 mb-4 font-medium"
+              delay={1.8}
+              stagger={0.05}
+            />
+            <motion.p
+              className="text-lg text-gray-600 max-w-2xl mx-auto"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 2.2 }}
+            >
               Transforming industries through innovative leadership and
               strategic vision. Building tomorrow's companies today.
-            </p>
+            </motion.p>
           </motion.div>
 
           {/* Social Links */}
@@ -120,16 +132,17 @@ const Hero = () => {
               { Icon: Twitter, href: "#", label: "Twitter" },
               { Icon: Mail, href: "#contact", label: "Contact" },
             ].map(({ Icon, href, label }) => (
-              <motion.a
-                key={label}
-                href={href}
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-blue-400 hover:bg-gray-700 transition-all duration-300 group"
-              >
-                <Icon size={20} />
-                <span className="sr-only">{label}</span>
-              </motion.a>
+              <Magnetic key={label} strength={0.3}>
+                <motion.a
+                  href={href}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-600 hover:text-blue-600 hover:bg-white shadow-lg transition-all duration-300 group"
+                >
+                  <Icon size={20} />
+                  <span className="sr-only">{label}</span>
+                </motion.a>
+              </Magnetic>
             ))}
           </motion.div>
 
@@ -139,13 +152,13 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.6 }}
           >
-            <button
+            <AnimatedButton
               onClick={scrollToAbout}
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full text-white font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25"
+              className="inline-flex items-center px-8 py-4 shadow-xl"
             >
               Discover My Journey
               <ChevronDown className="ml-2 animate-bounce" size={20} />
-            </button>
+            </AnimatedButton>
           </motion.div>
         </div>
       </div>
@@ -160,7 +173,7 @@ const Hero = () => {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="text-gray-400 cursor-pointer"
+          className="text-gray-500 cursor-pointer"
           onClick={scrollToAbout}
         >
           <ChevronDown size={24} />

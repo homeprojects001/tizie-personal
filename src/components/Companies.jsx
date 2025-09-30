@@ -7,6 +7,7 @@ import {
   TrendingUp,
   Zap,
 } from "lucide-react";
+import { SplitText } from "./ReactBits";
 
 const Companies = () => {
   const companies = [
@@ -83,7 +84,10 @@ const Companies = () => {
   ];
 
   return (
-    <section id="companies" className="py-20 bg-gray-900">
+    <section
+      id="companies"
+      className="py-20 bg-gradient-to-br from-blue-50/50 to-indigo-100/50"
+    >
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -94,12 +98,13 @@ const Companies = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                My Companies
-              </span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <SplitText
+              text="My Companies"
+              className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent"
+              delay={0.2}
+              stagger={0.1}
+            />
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               A diverse portfolio of companies spanning multiple industries,
               each driven by innovation and a commitment to creating meaningful
               impact in their respective markets.
@@ -107,70 +112,79 @@ const Companies = () => {
           </motion.div>
 
           {/* Companies Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {companies.map((company, index) => (
               <motion.div
                 key={company.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.1,
+                  type: "spring",
+                  stiffness: 100,
+                }}
                 viewport={{ once: true }}
-                className="group relative p-8 bg-gray-800/50 rounded-xl backdrop-blur-sm border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300 overflow-hidden"
+                whileHover={{ scale: 1.02, y: -8 }}
+                className="group relative"
               >
-                {/* Background Gradient */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${company.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
-                ></div>
+                <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white via-blue-50/30 to-indigo-100/50 p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-white/60 h-full">
+                  {/* Background Pattern */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${company.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+                  ></div>
 
-                {/* Content */}
-                <div className="relative z-10">
-                  {/* Icon and Sector */}
-                  <div className="flex items-start justify-between mb-6">
-                    <div
-                      className={`w-16 h-16 rounded-full bg-gradient-to-br ${company.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <company.Icon size={24} className="text-white" />
+                  {/* Content */}
+                  <div className="relative z-10 h-full flex flex-col">
+                    {/* Header */}
+                    <div className="flex items-start justify-between mb-6">
+                      <div
+                        className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${company.gradient} flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}
+                      >
+                        <company.Icon size={28} className="text-white" />
+                      </div>
+                      <span
+                        className={`px-4 py-2 rounded-full text-xs font-semibold bg-gradient-to-r ${company.gradient} text-white shadow-md`}
+                      >
+                        {company.sector}
+                      </span>
                     </div>
-                    <span
-                      className={`px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r ${company.gradient} text-white`}
-                    >
-                      {company.sector}
-                    </span>
-                  </div>
 
-                  {/* Company Info */}
-                  <div className="mb-6">
-                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300">
-                      {company.name}
-                    </h3>
-                    <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
-                      {company.description}
-                    </p>
-                  </div>
+                    {/* Company Info */}
+                    <div className="mb-6 flex-grow">
+                      <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                        {company.name}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed text-sm">
+                        {company.description}
+                      </p>
+                    </div>
 
-                  {/* Achievements */}
-                  <div className="space-y-2">
-                    <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-3">
-                      Key Achievements
-                    </h4>
-                    <div className="space-y-2">
-                      {company.achievements.map((achievement, i) => (
-                        <div
-                          key={i}
-                          className="flex items-center text-sm text-gray-300"
-                        >
+                    {/* Achievements */}
+                    <div className="space-y-3">
+                      <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                        Key Highlights
+                      </h4>
+                      <div className="grid grid-cols-1 gap-2">
+                        {company.achievements.map((achievement, i) => (
                           <div
-                            className={`w-2 h-2 rounded-full bg-gradient-to-r ${company.gradient} mr-3 flex-shrink-0`}
-                          ></div>
-                          {achievement}
-                        </div>
-                      ))}
+                            key={i}
+                            className="flex items-center text-sm text-gray-600 bg-white/60 rounded-lg px-3 py-2"
+                          >
+                            <div
+                              className={`w-2 h-2 rounded-full bg-gradient-to-r ${company.gradient} mr-3 flex-shrink-0`}
+                            ></div>
+                            <span className="font-medium">{achievement}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Hover Effect */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/5 to-transparent rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500"></div>
+                  {/* Decorative Elements */}
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-400/10 to-indigo-500/10 rounded-full -translate-y-12 translate-x-12 group-hover:scale-150 transition-transform duration-500"></div>
+                  <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-indigo-400/10 to-blue-500/10 rounded-full translate-y-8 -translate-x-8 group-hover:scale-125 transition-transform duration-700"></div>
+                </div>
               </motion.div>
             ))}
           </div>

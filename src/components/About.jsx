@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Award, Target, TrendingUp, Users } from "lucide-react";
+import { SplitText } from "./ReactBits";
 
 const About = () => {
   const achievements = [
@@ -57,7 +58,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gray-800/50">
+    <section id="about" className="py-20 bg-white/30 backdrop-blur-sm">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -68,51 +69,58 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                About Me
-              </span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <SplitText
+              text="About Me"
+              className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent"
+              delay={0.2}
+              stagger={0.1}
+            />
+            <motion.p
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              viewport={{ once: true }}
+            >
               A passionate entrepreneur and strategic leader with a proven track
               record of building and scaling successful businesses across
               multiple industries.
-            </p>
+            </motion.p>
           </motion.div>
 
           {/* Main Content */}
-          <div className="grid lg:grid-cols-2 gap-12 mb-20">
+          <div className="grid lg:grid-cols-2 gap-16 mb-24">
             {/* Career Journey */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="space-y-6"
+              className="relative"
             >
-              <h3 className="text-3xl font-bold text-white mb-6">
-                Career Journey
-              </h3>
-              <div className="space-y-4 text-gray-300 leading-relaxed">
-                <p>
-                  My entrepreneurial journey began over 15 years ago with a
-                  simple vision: to create businesses that not only generate
-                  profit but also make a positive impact on society. Starting
-                  from humble beginnings, I've built and scaled multiple
-                  companies across various sectors.
-                </p>
-                <p>
-                  Through years of experience, I've learned that successful
-                  business leadership isn't just about strategy and numbers—it's
-                  about people, vision, and the ability to adapt to an
-                  ever-changing market landscape.
-                </p>
-                <p>
-                  Today, I oversee a diverse portfolio of companies, each driven
-                  by innovation, sustainable practices, and a commitment to
-                  excellence. My approach combines strategic thinking with
-                  hands-on leadership to deliver exceptional results.
-                </p>
+              <div className="bg-gradient-to-br from-white via-blue-50/50 to-transparent rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-white/60">
+                <div className="absolute top-0 left-0 w-2 h-16 bg-gradient-to-b from-blue-500 to-indigo-600 rounded-r-full"></div>
+                <h3 className="text-3xl font-bold text-gray-800 mb-6 pl-6">
+                  Career Journey
+                </h3>
+                <div className="space-y-6 text-gray-600 leading-relaxed pl-6">
+                  <p className="text-lg">
+                    My entrepreneurial journey began over 15 years ago with a
+                    simple vision: to create businesses that not only generate
+                    profit but also make a positive impact on society.
+                  </p>
+                  <p>
+                    Through years of experience, I've learned that successful
+                    business leadership isn't just about strategy and
+                    numbers—it's about people, vision, and the ability to adapt
+                    to an ever-changing market landscape.
+                  </p>
+                  <p>
+                    Today, I oversee a diverse portfolio of companies, each
+                    driven by innovation, sustainable practices, and a
+                    commitment to excellence.
+                  </p>
+                </div>
               </div>
             </motion.div>
 
@@ -122,30 +130,30 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="space-y-6"
+              className="relative"
             >
-              <h3 className="text-3xl font-bold text-white mb-6">
-                Leadership Philosophy
-              </h3>
-              <div className="space-y-4 text-gray-300 leading-relaxed">
-                <p>
-                  I believe that great leadership starts with empowering others.
-                  My philosophy centers around creating environments where
-                  innovation thrives, teams feel valued, and everyone is aligned
-                  toward common goals.
-                </p>
-                <p>
-                  Transparency, accountability, and continuous learning are the
-                  cornerstones of my leadership style. I strive to lead by
-                  example, making data-driven decisions while never losing sight
-                  of the human element that drives success.
-                </p>
-                <p>
-                  Whether it's navigating complex market challenges or
-                  identifying new opportunities, I approach every situation with
-                  strategic thinking, creative problem-solving, and an
-                  unwavering commitment to excellence.
-                </p>
+              <div className="bg-gradient-to-br from-white via-indigo-50/50 to-transparent rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-white/60">
+                <div className="absolute top-0 left-0 w-2 h-16 bg-gradient-to-b from-indigo-500 to-purple-600 rounded-r-full"></div>
+                <h3 className="text-3xl font-bold text-gray-800 mb-6 pl-6">
+                  Leadership Philosophy
+                </h3>
+                <div className="space-y-6 text-gray-600 leading-relaxed pl-6">
+                  <p className="text-lg">
+                    I believe that great leadership starts with empowering
+                    others. My philosophy centers around creating environments
+                    where innovation thrives and teams feel valued.
+                  </p>
+                  <p>
+                    Transparency, accountability, and continuous learning are
+                    the cornerstones of my leadership style. I strive to lead by
+                    example while never losing sight of the human element.
+                  </p>
+                  <p>
+                    Whether navigating complex challenges or identifying new
+                    opportunities, I approach every situation with strategic
+                    thinking and creative problem-solving.
+                  </p>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -158,30 +166,56 @@ const About = () => {
             viewport={{ once: true }}
             className="mb-20"
           >
-            <h3 className="text-3xl font-bold text-center text-white mb-12">
-              Key Achievements
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <SplitText
+              text="Key Achievements"
+              className="text-3xl font-bold text-center text-gray-800 mb-16"
+              delay={0.2}
+              stagger={0.1}
+            />
+
+            {/* Modern Stats Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {achievements.map((achievement, index) => (
                 <motion.div
                   key={achievement.label}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.1,
+                    type: "spring",
+                    stiffness: 100,
+                  }}
                   viewport={{ once: true }}
-                  className="text-center p-6 bg-gray-900/50 rounded-xl backdrop-blur-sm border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300"
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  className="group relative"
                 >
-                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                    <achievement.Icon size={24} className="text-white" />
-                  </div>
-                  <div className="text-3xl font-bold text-blue-400 mb-2">
-                    {achievement.number}
-                  </div>
-                  <div className="text-lg font-semibold text-white mb-2">
-                    {achievement.label}
-                  </div>
-                  <div className="text-sm text-gray-400">
-                    {achievement.description}
+                  <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white via-blue-50/30 to-indigo-100/50 p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-white/60">
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-blue-100/20 to-indigo-200/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                    {/* Icon */}
+                    <div className="relative z-10 mb-6">
+                      <div className="w-16 h-16 mx-auto bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                        <achievement.Icon size={28} className="text-white" />
+                      </div>
+                    </div>
+
+                    {/* Stats */}
+                    <div className="relative z-10 text-center space-y-3">
+                      <div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">
+                        {achievement.number}
+                      </div>
+                      <div className="text-lg font-semibold text-gray-800">
+                        {achievement.label}
+                      </div>
+                      <div className="text-sm text-gray-600 leading-relaxed">
+                        {achievement.description}
+                      </div>
+                    </div>
+
+                    {/* Decorative Element */}
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-400/20 to-indigo-500/20 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-500"></div>
                   </div>
                 </motion.div>
               ))}
@@ -195,7 +229,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-3xl font-bold text-center text-white mb-12">
+            <h3 className="text-3xl font-bold text-center text-gray-800 mb-12">
               Core Values
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -206,14 +240,14 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="p-6 bg-gray-900/50 rounded-xl backdrop-blur-sm border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300 group"
+                  className="p-8 bg-gradient-to-br from-white via-blue-50/40 to-indigo-100/60 rounded-2xl backdrop-blur-sm border border-white/60 hover:border-blue-300 transition-all duration-300 group shadow-lg hover:shadow-xl"
                 >
                   <div
                     className={`inline-block px-4 py-2 rounded-full bg-gradient-to-r ${value.gradient} text-white font-medium text-sm mb-4`}
                   >
                     {value.title}
                   </div>
-                  <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                     {value.description}
                   </p>
                 </motion.div>
