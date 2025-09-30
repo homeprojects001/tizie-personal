@@ -69,7 +69,7 @@ const Header = () => {
           : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto px-6 py-6">
+      <nav className="container mx-auto px-6 py-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <motion.div
