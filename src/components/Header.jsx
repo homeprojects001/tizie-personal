@@ -60,7 +60,7 @@ const Header = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent"
+            className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent"
           >
             Tizie Oswald Lia Bi
           </Motion.div>
@@ -109,7 +109,7 @@ const Header = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden mt-4 py-4 border-t border-gray-700"
+            className="md:hidden mt-4 py-4 border-t border-gray-700/30 bg-gray-900/95 backdrop-blur-md rounded-md px-8"
           >
             {navItems.map((item) => (
               <button

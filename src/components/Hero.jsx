@@ -57,7 +57,7 @@ const Hero = () => {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="w-48 h-48 lg:w-56 lg:h-56 mx-auto mb-8 lg:mb-12 mt-8 lg:mt-12 xl:mt-20 relative"
+            className="w-48 h-48 lg:w-56 lg:h-56 mx-auto mb-4 lg:mb-6 mt-8 md:mt-12 xl:mt-20 relative"
           >
             <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-400 to-blue-600 p-1">
               <div className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center overflow-hidden">
@@ -83,7 +83,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.0 }}
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">
               <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                 Tizie{" "}
               </span>
@@ -115,7 +115,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.4 }}
-            className="flex justify-center space-x-6 mb-12"
+            className="flex justify-center space-x-6 mb-8"
           >
             {[
               {
@@ -147,6 +147,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.6 }}
+            className="mb-8"
           >
             <button
               onClick={scrollToAbout}
