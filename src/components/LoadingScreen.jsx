@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 const LoadingScreen = () => {
   return (
-    <motion.div
+    <Motion.div
       className="fixed inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 flex items-center justify-center z-50"
       initial={{ opacity: 1 }}
       exit={{
@@ -12,21 +12,21 @@ const LoadingScreen = () => {
       }}
     >
       <div className="text-center">
-        <motion.div
+        <Motion.div
           className="relative mb-8"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
         >
           <div className="w-24 h-24 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
-          <motion.div
+          <Motion.div
             className="absolute inset-0 w-24 h-24 border-2 border-blue-300 border-opacity-30 rounded-full mx-auto"
             animate={{ rotate: -360 }}
             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
           />
-        </motion.div>
+        </Motion.div>
 
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
@@ -35,16 +35,16 @@ const LoadingScreen = () => {
             Tizie Oswald
           </h1>
           <p className="text-gray-300 text-lg">Business Visionary & Leader</p>
-        </motion.div>
+        </Motion.div>
 
-        <motion.div
+        <Motion.div
           className="mt-8 flex justify-center space-x-1"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
         >
           {[0, 1, 2].map((i) => (
-            <motion.div
+            <Motion.div
               key={i}
               className="w-2 h-2 bg-blue-500 rounded-full"
               animate={{
@@ -59,9 +59,9 @@ const LoadingScreen = () => {
               }}
             />
           ))}
-        </motion.div>
+        </Motion.div>
       </div>
-    </motion.div>
+    </Motion.div>
   );
 };
 

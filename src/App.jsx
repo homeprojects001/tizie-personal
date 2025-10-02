@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion as Motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import "./App.css";
 import About from "./components/About";
@@ -34,7 +34,7 @@ function App() {
         {isLoading ? (
           <LoadingScreen key="loading" />
         ) : (
-          <motion.div
+          <Motion.div
             key="main"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -48,7 +48,7 @@ function App() {
               <Companies />
               <Contact />
             </main>
-          </motion.div>
+          </Motion.div>
         )}
       </AnimatePresence>
     </div>

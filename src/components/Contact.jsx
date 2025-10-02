@@ -1,12 +1,13 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import {
-  Github,
+  Facebook,
+  Instagram,
   Linkedin,
   Mail,
   MapPin,
   Phone,
   Send,
-  Twitter,
+  Video,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -43,41 +44,47 @@ const Contact = () => {
     {
       Icon: Mail,
       label: "Email",
-      value: "tizie@tizieoswald.com",
-      href: "mailto:tizie@tizieoswald.com",
+      value: "contact@tizieoswald.com",
+      href: "mailto:contact@tizieoswald.com",
     },
     {
       Icon: Phone,
       label: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567",
+      value: "+447935323345",
+      href: "tel:+447935323345",
     },
     {
       Icon: MapPin,
       label: "Location",
-      value: "New York, NY",
+      value: "London, United Kingdom",
       href: "#",
     },
   ];
 
   const socialLinks = [
     {
+      Icon: Facebook,
+      label: "Facebook",
+      href: "https://www.facebook.com/people/Tizie-Oswald/100075289416670",
+      color: "hover:text-blue-600",
+    },
+    {
+      Icon: Video,
+      label: "TikTok",
+      href: "https://tiktok.com/@tizieoswald",
+      color: "hover:text-pink-400",
+    },
+    {
+      Icon: Instagram,
+      label: "Instagram",
+      href: "https://www.instagram.com/tizieoswald/",
+      color: "hover:text-pink-500",
+    },
+    {
       Icon: Linkedin,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/tizieoswald",
+      href: "https://www.linkedin.com/in/tizie-oswald-a616346a/",
       color: "hover:text-blue-400",
-    },
-    {
-      Icon: Twitter,
-      label: "Twitter",
-      href: "https://twitter.com/tizieoswald",
-      color: "hover:text-sky-400",
-    },
-    {
-      Icon: Github,
-      label: "GitHub",
-      href: "https://github.com/tizieoswald",
-      color: "hover:text-gray-400",
     },
   ];
 
@@ -86,7 +93,7 @@ const Contact = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -99,14 +106,13 @@ const Contact = () => {
               </span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Ready to discuss opportunities, partnerships, or just want to
-              connect? I'd love to hear from you. Let's start a conversation.
+              Get In Touch
             </p>
-          </motion.div>
+          </Motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Information */}
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -127,7 +133,7 @@ const Contact = () => {
               {/* Contact Details */}
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <motion.a
+                  <Motion.a
                     key={info.label}
                     href={info.href}
                     initial={{ opacity: 0, y: 20 }}
@@ -147,7 +153,7 @@ const Contact = () => {
                         {info.value}
                       </div>
                     </div>
-                  </motion.a>
+                  </Motion.a>
                 ))}
               </div>
 
@@ -158,7 +164,7 @@ const Contact = () => {
                 </h4>
                 <div className="flex space-x-4">
                   {socialLinks.map((social, index) => (
-                    <motion.a
+                    <Motion.a
                       key={social.label}
                       href={social.href}
                       target="_blank"
@@ -172,14 +178,14 @@ const Contact = () => {
                     >
                       <social.Icon size={20} />
                       <span className="sr-only">{social.label}</span>
-                    </motion.a>
+                    </Motion.a>
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </Motion.div>
 
             {/* Contact Form */}
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -269,7 +275,7 @@ const Contact = () => {
                   />
                 </div>
 
-                <motion.button
+                <Motion.button
                   type="submit"
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }}
@@ -287,15 +293,15 @@ const Contact = () => {
                       <span>Send Message</span>
                     </>
                   )}
-                </motion.button>
+                </Motion.button>
               </form>
-            </motion.div>
+            </Motion.div>
           </div>
         </div>
       </div>
 
       {/* Footer */}
-      <motion.footer
+      <Motion.footer
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -304,11 +310,11 @@ const Contact = () => {
       >
         <div className="container mx-auto px-6">
           <div className="text-center text-gray-400">
-            <p>&copy; 2025 Tizie Oswald. All rights reserved.</p>
-            <p className="mt-2 text-sm">Built with passion and precision.</p>
+            <p>&copy; 2025 TizieOswald.com. All rights reserved.</p>
+            <p className="mt-2 text-sm">Created and hosted by Ivorywoo ltd</p>
           </div>
         </div>
-      </motion.footer>
+      </Motion.footer>
     </section>
   );
 };

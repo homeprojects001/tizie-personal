@@ -1,26 +1,41 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+
+const navItems = [
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Companies", href: "#companies" },
+  { name: "Contact", href: "#contact" },
+];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+
+      // Update active section based on scroll position
+      const sections = navItems.map((item) => item.href.substring(1));
+      const currentSection = sections.find((section) => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Companies", href: "#companies" },
-    { name: "Contact", href: "#contact" },
-  ];
 
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
@@ -38,32 +53,42 @@ const Header = () => {
           : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto px-6 py-4">
+      <nav className="container mx-auto px-6 py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent"
           >
-            Tizie Oswald
-          </motion.div>
+            Tizie Oswald Lia Bi
+          </Motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item, index) => (
-              <motion.button
+              <Motion.button
                 key={item.name}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-300 hover:text-blue-400 transition-colors duration-300 relative group"
+                className={`px-3 py-2 rounded-md text-gray-300 hover:text-blue-400 transition-all duration-300 relative group ${
+                  activeSection === item.href.substring(1)
+                    ? "text-blue-400"
+                    : ""
+                }`}
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
-              </motion.button>
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-blue-400 transition-all duration-300 ${
+                    activeSection === item.href.substring(1)
+                      ? "w-full"
+                      : "w-0 group-hover:w-full"
+                  }`}
+                ></span>
+              </Motion.button>
             ))}
           </div>
 
@@ -80,7 +105,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -90,12 +115,16 @@ const Header = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left py-2 text-gray-300 hover:text-blue-400 transition-colors duration-300"
+                className={`block w-full text-left py-2 transition-colors duration-300 ${
+                  activeSection === item.href.substring(1)
+                    ? "text-blue-400"
+                    : "text-gray-300 hover:text-blue-400"
+                }`}
               >
                 {item.name}
               </button>
             ))}
-          </motion.div>
+          </Motion.div>
         )}
       </nav>
     </header>

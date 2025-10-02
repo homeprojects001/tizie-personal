@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { ChevronDown, Linkedin, Mail, Twitter } from "lucide-react";
+import { motion as Motion } from "framer-motion";
+import { ChevronDown, Linkedin, Mail } from "lucide-react";
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -27,7 +27,7 @@ const Hero = () => {
       {/* Floating Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(6)].map((_, i) => (
-          <motion.div
+          <Motion.div
             key={i}
             className="absolute w-2 h-2 bg-blue-400/30 rounded-full"
             initial={{ opacity: 0 }}
@@ -53,74 +53,83 @@ const Hero = () => {
       <div className="container mx-auto px-6 py-20 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Profile Image */}
-          <motion.div
+          <Motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="w-48 h-48 mx-auto mb-8 relative"
+            className="w-48 h-48 lg:w-56 lg:h-56 mx-auto mb-8 lg:mb-12 mt-8 lg:mt-12 xl:mt-20 relative"
           >
             <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-400 to-blue-600 p-1">
-              <div className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center">
-                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-4xl font-bold text-white">
-                  TO
-                </div>
+              <div className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center overflow-hidden">
+                <img
+                  src="/tizie.jpeg"
+                  alt="Tizie Oswald Lia Bi"
+                  className="w-full h-full object-cover rounded-full"
+                />
               </div>
             </div>
 
             {/* Animated ring */}
-            <motion.div
+            <Motion.div
               className="absolute inset-0 rounded-full border-2 border-blue-400/50"
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             />
-          </motion.div>
+          </Motion.div>
 
           {/* Name and Title */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.0 }}
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-4">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">
               <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                Tizie
+                Tizie{" "}
               </span>
-              <br />
+
               <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                Oswald
+                Oswald Lia Bi
               </span>
             </h1>
-          </motion.div>
+          </Motion.div>
 
           {/* Tagline */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
             className="mb-8"
           >
             <p className="text-xl md:text-2xl text-gray-300 mb-4">
-              Business Visionary & Strategic Leader
+              Business Visionary & Strategic Leader.
             </p>
             <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Transforming industries through innovative leadership and
-              strategic vision. Building tomorrow's companies today.
+              A relentless force of ambition and vision, driven by an insatiable
+              fire to build, create, and leave a mark on the world.
             </p>
-          </motion.div>
+          </Motion.div>
 
           {/* Social Links */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.4 }}
             className="flex justify-center space-x-6 mb-12"
           >
             {[
-              { Icon: Linkedin, href: "#", label: "LinkedIn" },
-              { Icon: Twitter, href: "#", label: "Twitter" },
-              { Icon: Mail, href: "#contact", label: "Contact" },
+              {
+                Icon: Linkedin,
+                href: "https://www.linkedin.com/in/tizie-oswald-a616346a",
+                label: "LinkedIn",
+              },
+              {
+                Icon: Mail,
+                href: "mailto:Contact@tizieoswald.com",
+                label: "Contact",
+              },
             ].map(({ Icon, href, label }) => (
-              <motion.a
+              <Motion.a
                 key={label}
                 href={href}
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -129,12 +138,12 @@ const Hero = () => {
               >
                 <Icon size={20} />
                 <span className="sr-only">{label}</span>
-              </motion.a>
+              </Motion.a>
             ))}
-          </motion.div>
+          </Motion.div>
 
           {/* CTA Button */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.6 }}
@@ -146,26 +155,26 @@ const Hero = () => {
               Discover My Journey
               <ChevronDown className="ml-2 animate-bounce" size={20} />
             </button>
-          </motion.div>
+          </Motion.div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
+      <Motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8, duration: 0.5 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
-        <motion.div
+        <Motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="text-gray-400 cursor-pointer"
           onClick={scrollToAbout}
         >
           <ChevronDown size={24} />
-        </motion.div>
-      </motion.div>
+        </Motion.div>
+      </Motion.div>
     </section>
   );
 };

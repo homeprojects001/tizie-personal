@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import {
   Briefcase,
   Building2,
@@ -87,7 +87,7 @@ const Companies = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -104,12 +104,12 @@ const Companies = () => {
               each driven by innovation and a commitment to creating meaningful
               impact in their respective markets.
             </p>
-          </motion.div>
+          </Motion.div>
 
           {/* Companies Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {companies.map((company, index) => (
-              <motion.div
+              <Motion.div
                 key={company.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -171,12 +171,12 @@ const Companies = () => {
 
                 {/* Hover Effect */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/5 to-transparent rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500"></div>
-              </motion.div>
+              </Motion.div>
             ))}
           </div>
 
           {/* CTA Section */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -187,8 +187,9 @@ const Companies = () => {
               Interested in Partnership Opportunities?
             </h3>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              I'm always looking for strategic partnerships and investment
-              opportunities. Let's explore how we can create value together.
+              Whether you're interested in partnership opportunities, have a
+              business proposal, or simply want to connect, I'm always open to
+              meaningful conversations that can create mutual value.
             </p>
             <button
               onClick={() =>
@@ -200,7 +201,7 @@ const Companies = () => {
             >
               Get In Touch
             </button>
-          </motion.div>
+          </Motion.div>
         </div>
       </div>
     </section>

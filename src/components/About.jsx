@@ -1,24 +1,24 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { Award, Target, TrendingUp, Users } from "lucide-react";
 
 const About = () => {
   const achievements = [
     {
       Icon: Users,
-      number: "50+",
+      number: "10+",
       label: "Team Members",
       description: "Leading diverse teams across multiple industries",
     },
     {
       Icon: TrendingUp,
-      number: "15+",
+      number: "10+",
       label: "Years Experience",
       description: "Building and scaling successful businesses",
     },
     {
       Icon: Award,
       number: "10+",
-      label: "Companies",
+      label: "Services",
       description: "Founded and operated across various sectors",
     },
     {
@@ -31,13 +31,13 @@ const About = () => {
 
   const values = [
     {
-      title: "Innovation First",
+      title: "Innovative first",
       description:
         "Embracing cutting-edge technologies and methodologies to stay ahead of the curve.",
       gradient: "from-blue-500 to-cyan-500",
     },
     {
-      title: "People-Centric",
+      title: "People - Centric",
       description:
         "Building strong teams and fostering environments where talent thrives.",
       gradient: "from-purple-500 to-pink-500",
@@ -61,7 +61,7 @@ const About = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -73,85 +73,74 @@ const About = () => {
                 About Me
               </span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              A passionate entrepreneur and strategic leader with a proven track
-              record of building and scaling successful businesses across
-              multiple industries.
-            </p>
-          </motion.div>
+          </Motion.div>
 
           {/* Main Content */}
-          <div className="grid lg:grid-cols-2 gap-12 mb-20">
-            {/* Career Journey */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+          <div className="max-w-4xl mx-auto mb-20">
+            {/* About Me */}
+            <Motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h3 className="text-3xl font-bold text-white mb-6">
-                Career Journey
-              </h3>
-              <div className="space-y-4 text-gray-300 leading-relaxed">
-                <p>
-                  My entrepreneurial journey began over 15 years ago with a
-                  simple vision: to create businesses that not only generate
-                  profit but also make a positive impact on society. Starting
-                  from humble beginnings, I've built and scaled multiple
-                  companies across various sectors.
+              <h3 className="text-3xl font-bold text-white mb-6">About Me</h3>
+              <div className="space-y-6 text-gray-300 leading-relaxed">
+                <p className="text-lg italic text-blue-300">
+                  A relentless force of ambition and vision, driven by an
+                  insatiable fire to build, create, and leave a mark on the
+                  world. I don't just see a company; I see a mission, and my
+                  energy is contagious, inspiring others to chase the dream with
+                  me.
                 </p>
                 <p>
-                  Through years of experience, I've learned that successful
-                  business leadership isn't just about strategy and numbers—it's
-                  about people, vision, and the ability to adapt to an
-                  ever-changing market landscape.
+                  Tizie Oswald born in 1983 is a technology entrepreneur, IT
+                  consultant and investor. He is best known as the founder of
+                  Ivorywoo ltd, an IT company based in United Kingdom. After
+                  many years in this field he decided to launch this Tech
+                  company to bring some simple and new services in order to
+                  simplify people's daily life.
                 </p>
-                <p>
-                  Today, I oversee a diverse portfolio of companies, each driven
-                  by innovation, sustainable practices, and a commitment to
-                  excellence. My approach combines strategic thinking with
-                  hands-on leadership to deliver exceptional results.
-                </p>
-              </div>
-            </motion.div>
 
-            {/* Leadership Philosophy */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
-              <h3 className="text-3xl font-bold text-white mb-6">
-                Leadership Philosophy
-              </h3>
-              <div className="space-y-4 text-gray-300 leading-relaxed">
+                <h4 className="text-2xl font-semibold text-white mt-8 mb-4">
+                  Early Life and Education
+                </h4>
                 <p>
-                  I believe that great leadership starts with empowering others.
-                  My philosophy centers around creating environments where
-                  innovation thrives, teams feel valued, and everyone is aligned
-                  toward common goals.
+                  Tizie Oswald born in Abidjan, Ivory Coast. He developed an
+                  interest in computing at the age of 13 and gained many
+                  experience from this point. He attended the university of East
+                  London, United Kingdom where he studied Master degree in
+                  computing, graduating with honours in 2011.
                 </p>
+
+                <h4 className="text-2xl font-semibold text-white mt-8 mb-4">
+                  Career
+                </h4>
                 <p>
-                  Transparency, accountability, and continuous learning are the
-                  cornerstones of my leadership style. I strive to lead by
-                  example, making data-driven decisions while never losing sight
-                  of the human element that drives success.
+                  After graduation, Tizie Oswald worked for several companies.
+                  All these companies was focused on various computer field such
+                  as: cybersecurity, digital communication, web and mobile
+                  applications, webs services, project management, IT support,
+                  artificial intelligence. After all these experiences, he
+                  decided to launch in July 2025 Ivorywoo limited, a tech
+                  company focused on delivering simple IT solutions to
+                  consumers.
                 </p>
+
+                <h4 className="text-2xl font-semibold text-white mt-8 mb-4">
+                  Personal Life
+                </h4>
                 <p>
-                  Whether it's navigating complex market challenges or
-                  identifying new opportunities, I approach every situation with
-                  strategic thinking, creative problem-solving, and an
-                  unwavering commitment to excellence.
+                  Tizie Oswald resides in United Kingdom. He is an IT Consultant
+                  and a Tech Entrepreneur.
                 </p>
               </div>
-            </motion.div>
+            </Motion.div>
           </div>
 
           {/* Achievements */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -163,7 +152,7 @@ const About = () => {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {achievements.map((achievement, index) => (
-                <motion.div
+                <Motion.div
                   key={achievement.label}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -183,13 +172,13 @@ const About = () => {
                   <div className="text-sm text-gray-400">
                     {achievement.description}
                   </div>
-                </motion.div>
+                </Motion.div>
               ))}
             </div>
-          </motion.div>
+          </Motion.div>
 
           {/* Values */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -200,7 +189,7 @@ const About = () => {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {values.map((value, index) => (
-                <motion.div
+                <Motion.div
                   key={value.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -216,10 +205,10 @@ const About = () => {
                   <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
                     {value.description}
                   </p>
-                </motion.div>
+                </Motion.div>
               ))}
             </div>
-          </motion.div>
+          </Motion.div>
         </div>
       </div>
     </section>
