@@ -47,22 +47,26 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-40 transition-all duration-300 ${
+      className={`fixed top-0 w-full z-40 transition-all duration-300${
         scrolled
           ? "bg-gray-900/95 backdrop-blur-md shadow-lg"
           : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto px-6 py-6">
+      <nav className="container mx-auto px-6 !py-2 md:!py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent"
+            className="flex items-center"
           >
-            Tizie Oswald Lia Bi
+            <img
+              src="/logo-transparent.png"
+              alt="Tizie Oswald Lia Bi Logo"
+              className="h-10 w-10 md:h-12 md:w-12 lg:h-14 lg:w-14 invert"
+            />
           </Motion.div>
 
           {/* Desktop Navigation */}
